@@ -1,0 +1,156 @@
+.people-wrapper {
+	color: white;
+	padding: 20px;
+	max-width: 100vw;
+	width: 100%;
+	margin: 0 auto;
+	overflow-x: hidden;
+	box-sizing: border-box;
+}
+
+.title {
+	text-align: center;
+	font-size: 2.8rem;
+	margin-bottom: 30px;
+	color: #ffe81f;
+	font-family: 'Orbitron', sans-serif;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.search-container {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+
+	input {
+		padding: 10px;
+		width: 300px;
+		border: 2px solid #ffe81f;
+		border-radius: 6px;
+		font-size: 16px;
+		background-color: #1d1d2b;
+		color: white;
+		font-family: 'Orbitron', sans-serif;
+
+		&::placeholder {
+			color: #aaa;
+		}
+	}
+}
+
+.table-wrapper {
+	width: 100%;
+	overflow-x: auto;
+}
+
+.table-scroll-container {
+	display: flex;
+	justify-content: center;
+
+	table {
+		width: max-content;
+		min-width: 1200px;
+		border-collapse: separate;
+		border-spacing: 0;
+		border: 1px solid #ffe81f;
+		overflow: hidden;
+		box-shadow: 0 0 10px #ffe81f66;
+		border-radius: 6px;
+	}
+
+	thead tr:first-child th:first-child {
+		border-top-left-radius: 6px;
+	}
+
+	thead tr:first-child th:last-child {
+		border-top-right-radius: 6px;
+	}
+
+	tbody tr:last-child td:first-child {
+		border-bottom-left-radius: 6px;
+	}
+
+	tbody tr:last-child td:last-child {
+		border-bottom-right-radius: 6px;
+	}
+}
+
+
+.pagination {
+	margin-top: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+
+	button {
+		padding: 5px 12px;
+		background-color: #0d1b2a;
+		border: 1px solid #ffe81f;
+		color: #ffe81f;
+		border-radius: 5px;
+		cursor: pointer;
+		font-family: 'Orbitron', sans-serif;
+		transition: all 0.2s ease;
+
+		&:hover:not(:disabled) {
+			background-color: #ffe81f;
+			color: #000;
+		}
+
+		&:disabled {
+			opacity: 0.5;
+			cursor: default;
+		}
+	}
+
+	.page-input {
+		width: 50px;
+		text-align: center;
+		padding: 5px;
+		border-radius: 4px;
+		border: 1px solid #ffe81f;
+		background-color: #1d1d2b;
+		color: white;
+		font-family: 'Orbitron', sans-serif;
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		-moz-appearance: textfield;
+	}
+}
+
+.spinner {
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #ffffff;
+	margin-top: 40px;
+	font-family: 'Orbitron', sans-serif;
+}
+
+.home-button {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	background-color: #0d1b2a;
+	color: #ffe81f;
+	padding: 8px 16px;
+	border: 2px solid #ffe81f;
+	border-radius: 6px;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: 'Orbitron', sans-serif;
+	z-index: 1000;
+	transition: background-color 0.2s ease, color 0.2s ease;
+
+	&:hover {
+		background-color: #ffe81f;
+		color: #000;
+		cursor: pointer;
+	}
+}

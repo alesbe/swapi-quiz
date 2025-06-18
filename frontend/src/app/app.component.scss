@@ -1,0 +1,29 @@
+.app-footer {
+  text-align: center;
+  padding: 20px 10px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  color: #ffe81f;
+  background-color: #0d1b2a;
+  border-top: 1px solid #ffe81f;
+  margin-top: 40px;
+
+  a {
+    color: #ffe81f;
+    text-decoration: underline;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+:host {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.main-content {
+	flex: 1 0 auto;
+}

@@ -1,0 +1,63 @@
+<div class="people-wrapper">
+  <button class="home-button" (click)="goBack()">← Back</button>
+
+	<h2 class="title">People</h2>
+
+	<div class="search-container">
+		<input [formControl]="searchControl" type="text" placeholder="Search by name..." />
+	</div>
+
+	<ng-template #spinner>
+		<div class="spinner">Loading...</div>
+	</ng-template>
+
+
+	<div class="table-wrapper" *ngIf="!loading; else spinner">
+		<div class="table-scroll-container">
+			<table>
+				<thead>
+					<tr>
+						<th
+              *ngFor="let col of columns"
+              [class.sortable]="col.sortable"
+              (click)="col.sortable ? onSort({ field: col.field, direction: toggleSort(col.field) }) : null"
+            >
+              {{ col.label }}
+              <span *ngIf="col.sortable && sortField === col.field">
+                <span *ngIf="sortDirection === 'asc'">▲</span>
+                <span *ngIf="sortDirection === 'desc'">▼</span>
+              </span>
+            </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let person of people; let i = index" [class.alt-row]="i % 2 === 0">
+						<td *ngFor="let col of columns">
+							<ng-container [ngSwitch]="sanitizeValue(getValue(person, col.field))">
+								<em *ngSwitchCase="'Unknown'">Unknown</em>
+								<span *ngSwitchCase="'-'">-</span>
+								<span *ngSwitchDefault>{{ formatValue(getValue(person, col.field), col.field) }}</span>
+							</ng-container>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="pagination" *ngIf="!loading">
+		<button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage <= 0">◀</button>
+		<span>Page</span>
+		<input
+      type="number"
+      [min]="1"
+      [max]="totalPages"
+      [value]="currentPage + 1"
+      (change)="handlePageInput($event)"
+      class="page-input"
+    />
+		<span>of {{ totalPages }}</span>
+		<button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage >= totalPages - 1">▶</button>
+	</div>
+</div>
+
