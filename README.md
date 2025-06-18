@@ -57,7 +57,7 @@ An interactive **Star Wars** data browser built with Angular and Spring Boot, st
 1. **Clone the repo**:
 
 ```bash
-git clone https://github.com/alvaroesparza/swapi-quiz.git
+git clone https://github.com/alesbe/swapi-quiz.git
 cd swapi-quiz
 ```
 
